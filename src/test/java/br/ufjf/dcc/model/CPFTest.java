@@ -9,21 +9,21 @@ class CPFTest {
     @Test
     public void isInvalidCPFFormat() {
         CPF cpf = new CPF();
-        boolean actual = cpf.isInvalidCPF("123.456.67-37");
+        boolean actual = cpf.isValidCPF("123.456.67-37");
         assertFalse(actual);
     }
 
     @Test
     public void isValidCPFFormatButInvalid() {
         CPF cpf = new CPF();
-        boolean actual = cpf.isInvalidCPF("116.008.450-52");
+        boolean actual = cpf.isValidCPF("116.008.450-52");
         assertFalse(actual);
     }
 
     @Test
     public void isValidCPFFormat() {
         CPF cpf = new CPF();
-        boolean actual = cpf.isInvalidCPF("529.982.247-25");
+        boolean actual = cpf.isValidCPF("529.982.247-25");
         assertTrue(actual);
     }
 
