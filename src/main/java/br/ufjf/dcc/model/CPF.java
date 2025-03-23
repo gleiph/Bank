@@ -1,13 +1,33 @@
 package br.ufjf.dcc.model;
 
+import br.ufjf.dcc.model.exception.InvalidCPFException;
+
 import java.util.regex.Pattern;
 
 public class CPF {
 
+    private String cpf;
+
     private static final Pattern CPF_PATTERN =
             Pattern.compile("^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$");
 
-    public boolean isValidCPF(String cpf) {
+
+    public static CPF getInstance(String cpf){
+        return new CPF(cpf);
+    }
+
+
+    private CPF(String cpf) {
+        if(!isValidFormat(cpf)) {
+            throw new InvalidCPFException("Invalid format: " + cpf);
+        }
+        if(!isValidCPF(cpf)) {
+            throw new InvalidCPFException("Invalid CPF: " + cpf);
+        }
+        this.cpf = cpf;
+    }
+
+    private boolean isValidCPF(String cpf) {
         if(!isValidFormat(cpf))
             return false;
 
