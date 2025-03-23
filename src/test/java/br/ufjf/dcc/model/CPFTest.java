@@ -13,4 +13,13 @@ class CPFTest {
         assertFalse(actual);
     }
 
+    @Test
+    public void isValidCPFFormat() {
+        CPF cpf = new CPF();
+        boolean actual = cpf.isInvalidCPF("116.008.450-53");
+        assertTrue(actual);
+    }
+
+
+
 }
