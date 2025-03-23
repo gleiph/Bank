@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class CPF {
 
-    private String cpf;
+    private final String cpf;
 
     private static final Pattern CPF_PATTERN =
             Pattern.compile("^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$");
@@ -18,7 +18,7 @@ public class CPF {
 
 
     private CPF(String cpf) {
-        if(!isValidFormat(cpf)) {
+        if(isInvalidFormat(cpf)) {
             throw new InvalidCPFException("Invalid format: " + cpf);
         }
         if(!isValidCPF(cpf)) {
@@ -28,15 +28,15 @@ public class CPF {
     }
 
     private boolean isValidCPF(String cpf) {
-        if(!isValidFormat(cpf))
+        if(isInvalidFormat(cpf))
             return false;
 
         return validateFirstVerifierDigit(cpf)  &&
                 validateSecondVerifierDigit(cpf);
     }
 
-    private static boolean isValidFormat(String cpf) {
-        return CPF_PATTERN.matcher(cpf).matches();
+    private static boolean isInvalidFormat(String cpf) {
+        return !CPF_PATTERN.matcher(cpf).matches();
     }
 
     private String cleanCPF(String cpf) {
