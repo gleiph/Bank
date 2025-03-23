@@ -8,6 +8,10 @@ public class CPF {
 
     private final String cpf;
 
+    public String getCpf() {
+        return cpf;
+    }
+
     private static final Pattern CPF_PATTERN =
             Pattern.compile("^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$");
 
