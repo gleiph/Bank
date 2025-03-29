@@ -1,6 +1,5 @@
 package br.ufjf.dcc.model;
 
-import br.ufjf.dcc.model.exception.InvalidCPFException;
 import br.ufjf.dcc.model.exception.InvalidEmailException;
 import org.junit.jupiter.api.Test;
 

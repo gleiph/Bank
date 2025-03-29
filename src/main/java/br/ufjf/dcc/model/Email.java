@@ -7,6 +7,10 @@ public class Email {
 
     private final String email;
 
+    public String getEmail() {
+        return email;
+    }
+
     public static Email getInstance(String email){
         return new Email(email);
     }
