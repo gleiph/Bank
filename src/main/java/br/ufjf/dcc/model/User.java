@@ -12,6 +12,11 @@ public class User {
     private final CPF cpf;
 
     public User(String login, String password, String email, String cpf) {
+        Objects.requireNonNull(login, "Login cannot be null");
+        Objects.requireNonNull(password, "Password cannot be null");
+        Objects.requireNonNull(email, "Email cannot be null");
+        Objects.requireNonNull(cpf, "CPF cannot be null");
+
         this.login = login;
         this.password = hashPassword(password);
         this.email = Email.getInstance(email);
@@ -19,6 +24,7 @@ public class User {
     }
 
     private String hashPassword(String password) {
+        Objects.requireNonNull(password, "Password cannot be null");
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] hashedBytes = md.digest(password.getBytes());
@@ -36,7 +42,7 @@ public class User {
     }
 
     public boolean checkPassword(String password) {
-        return hashPassword(password).equals(this.password);
+        return password != null && hashPassword(password).equals(this.password);
     }
 
     public String getLogin() {
@@ -65,4 +71,7 @@ public class User {
     public int hashCode() {
         return Objects.hash(getLogin(), password, getEmail(), getCpf());
     }
+
+
+
 }

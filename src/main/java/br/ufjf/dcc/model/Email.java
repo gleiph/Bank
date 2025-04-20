@@ -40,4 +40,9 @@ public class Email {
     public int hashCode() {
         return Objects.hashCode(getEmail());
     }
+
+    @Override
+    public String toString() {
+        return email;
+    }
 }

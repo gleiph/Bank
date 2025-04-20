@@ -91,4 +91,9 @@ public class CPF {
     public int hashCode() {
         return Objects.hashCode(getCpf());
     }
+
+    @Override
+    public String toString() {
+        return cpf;
+    }
 }
