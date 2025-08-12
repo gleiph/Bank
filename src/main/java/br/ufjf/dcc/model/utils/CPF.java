@@ -1,4 +1,4 @@
-package br.ufjf.dcc.model;
+package br.ufjf.dcc.model.utils;
 
 import br.ufjf.dcc.model.exception.InvalidCPFException;
 

@@ -1,6 +1,7 @@
 package br.ufjf.dcc.model;
 
 import br.ufjf.dcc.model.exception.InvalidPhoneNumberException;
+import br.ufjf.dcc.model.utils.PhoneNumber;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
