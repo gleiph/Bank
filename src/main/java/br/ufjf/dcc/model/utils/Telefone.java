@@ -5,27 +5,27 @@ import br.ufjf.dcc.model.exception.InvalidPhoneNumberException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PhoneNumber {
+public class Telefone {
 
-    private final String number;
+    private final String numero;
 
-    public static PhoneNumber getInstance(String number) {return new PhoneNumber(number);}
+    public static Telefone getInstance(String numero) {return new Telefone(numero);}
 
-    public PhoneNumber(String number) {
-        if(!isValid(number)){
-            throw new InvalidPhoneNumberException("Invalid phone number: " + number);
+    public Telefone(String numero) {
+        if(!isValid(numero)){
+            throw new InvalidPhoneNumberException("Invalid phone number: " + numero);
         }
-        this.number = number;
+        this.numero = numero;
     }
 
-    public String getNumber() {
-        return this.number;
+    public String getNumero() {
+        return this.numero;
     }
 
-    public boolean isValid(String number) {
+    public boolean isValid(String numero) {
         String regex = "^\\(?[1-9]{2}\\)? ?(?:[2-8]|9[0-9])[0-9]{3}\\-?[0-9]{4}$";  //Padrão para telefones no Brasil
         Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(number);
+        Matcher matcher = pattern.matcher(numero);
         return matcher.matches();
     }
 
