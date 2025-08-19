@@ -1,4 +1,16 @@
 package br.ufjf.dcc.model;
 
-public class Caixa {
+import br.ufjf.dcc.model.utils.*;
+
+import java.util.Date;
+
+public class Caixa extends Usuario{
+
+    public Caixa(Nome nome, Date data, CPF cpf, Endereco cep, Email email, Senha senha){
+        super(nome, data, cpf, cep, email, senha);
+    }
+
+    public static Caixa getInstance(Nome nome, Date data, CPF cpf, Endereco cep, Email email, Senha senha){
+        return new Caixa(nome, data, cpf, cep, email, senha);
+    }
 }
