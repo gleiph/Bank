@@ -34,9 +34,8 @@ public class CEP {
 
     @Override
     public String toString() {
-        // Remove qualquer caractere que não seja número
-        String numeros = cep.replaceAll("\\D", "");
         // Formata como NNNNN-NNN
+        String numeros = cep.replaceAll("\\D", "");
         return numeros.substring(0, 5) + "-" + numeros.substring(5);
     }
 
