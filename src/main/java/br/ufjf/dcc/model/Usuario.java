@@ -2,12 +2,15 @@ package br.ufjf.dcc.model;
 
 import br.ufjf.dcc.model.utils.*;
 import lombok.Getter;
-
+import lombok.Setter;
 import java.util.Date;
+import java.util.UUID;
 
 @Getter
+@Setter
 public class Usuario {
 
+    private final UUID id;
     private final Nome nome;
     private final Date data_nasc;
     private final CPF cpf;
@@ -15,11 +18,8 @@ public class Usuario {
     private Email email;
     private Senha senha;
 
-    public static Usuario getInstance(Nome nome, Date data, CPF cpf, Endereco cep, Email email, Senha senha) {
-        return new Usuario(nome, data, cpf, cep, email, senha);
-    }
-
     public Usuario(Nome nome, Date data, CPF cpf, Endereco cep, Email email, Senha senha){
+        this.id = UUID.randomUUID();
         this.nome = nome;
         this.data_nasc = data;
         this.cpf = cpf;
@@ -28,4 +28,10 @@ public class Usuario {
         this.senha = senha;
     }
 
+    public Usuario() {
+        this.id = UUID.randomUUID();
+        this.nome = null;
+        this.data_nasc = null;
+        this.cpf = null;
+    }
 }

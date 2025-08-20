@@ -13,12 +13,18 @@ public class Conta {
     @Setter
     private double saldo;
 
-    public Conta(UUID id, Cliente cliente, double saldo){
-        this.id = id;
+    private Conta(Cliente cliente, double saldo){
+        this.id = UUID.randomUUID();
         this.cliente = cliente;
         this.saldo = saldo;
     }
 
-    public static Conta getInstance(UUID id, Cliente cliente, double saldo) {return new Conta(id, cliente, saldo);}
+    private Conta() {
+        this.id = UUID.randomUUID();
+        this.cliente = null;
+    }
 
+    public static Conta createEmpty() {return new Conta();}
+
+    public static Conta getInstance(UUID id, Cliente cliente, double saldo) {return new Conta(cliente, saldo);}
 }

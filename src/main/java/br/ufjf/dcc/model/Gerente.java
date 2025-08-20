@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Gerente extends Usuario{
 
-    public Gerente(Nome nome, Date data, CPF cpf, Endereco cep, Email email, Senha senha){
+    private Gerente(Nome nome, Date data, CPF cpf, Endereco cep, Email email, Senha senha){
         super(nome, data, cpf, cep, email, senha);
     }
 
