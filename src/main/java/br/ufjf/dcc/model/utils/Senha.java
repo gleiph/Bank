@@ -10,7 +10,7 @@ public class Senha {
 
     public static Senha getInstance(String senha) {return new Senha(senha);}
 
-    public Senha(String senha){
+    private Senha(String senha){
         if(!isValid(senha)){
             throw new InvalidPasswordException("Invalid password: " + senha);
         }

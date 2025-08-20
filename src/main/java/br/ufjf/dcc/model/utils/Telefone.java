@@ -11,7 +11,7 @@ public class Telefone {
 
     public static Telefone getInstance(String numero) {return new Telefone(numero);}
 
-    public Telefone(String numero) {
+    private Telefone(String numero) {
         if(!isValid(numero)){
             throw new InvalidPhoneNumberException("Invalid phone number: " + numero);
         }
@@ -22,7 +22,7 @@ public class Telefone {
         return this.numero;
     }
 
-    public boolean isValid(String numero) {
+    private boolean isValid(String numero) {
         String regex = "^\\(?[1-9]{2}\\)? ?(?:[2-8]|9[0-9])[0-9]{3}\\-?[0-9]{4}$";  //Padrão para telefones no Brasil
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(numero);

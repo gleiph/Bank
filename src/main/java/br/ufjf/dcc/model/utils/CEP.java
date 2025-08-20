@@ -13,7 +13,7 @@ public class CEP {
 
     public CEP() {}
 
-    public CEP(String cep) {
+    private CEP(String cep) {
         if(!isValid(cep)){
             throw new InvalidCEPException("Invalid Format: " + cep);
         }
@@ -22,7 +22,7 @@ public class CEP {
 
     public String getCEP() {return this.cep;}
 
-    public static boolean isValid(String cep) {
+    private boolean isValid(String cep) {
         if (cep == null || cep.isEmpty()) {
             return false;
         }

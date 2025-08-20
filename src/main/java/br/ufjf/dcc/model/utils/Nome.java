@@ -11,7 +11,7 @@ public class Nome {
 
     public static Nome getInstance(String nome, String sobrenome) {return new Nome(nome, sobrenome);}
 
-    public Nome(String nome, String sobrenome) {
+    private Nome(String nome, String sobrenome) {
         if(!isValid(nome, sobrenome)){
             throw new InvalidNameException("Invalid name: " + nome + " " + sobrenome);
         }
