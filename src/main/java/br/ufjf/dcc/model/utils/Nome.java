@@ -17,6 +17,9 @@ public class Nome {
         if(!isValid(nome, sobrenome)){
             throw new InvalidNameException("Invalid name: " + nome + " " + sobrenome);
         }
+        Objects.requireNonNull(nome, "First name cannot be null");
+        Objects.requireNonNull(sobrenome, "Second name cannot be null");
+
         this.nome = nome;
         this.sobrenome = sobrenome;
     }
