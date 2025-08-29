@@ -1,5 +1,6 @@
 package br.ufjf.dcc.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import java.util.UUID;
 public class Conta {
 
     private final UUID id;
+    @JsonIgnore
     private final Cliente cliente;
     @Setter
     private double saldo;
