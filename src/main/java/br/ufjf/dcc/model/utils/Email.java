@@ -3,6 +3,8 @@ package br.ufjf.dcc.model.utils;
 import br.ufjf.dcc.model.exception.InvalidEmailException;
 import org.apache.commons.validator.routines.EmailValidator;
 
+import java.util.Objects;
+
 public class Email {
 
     private final String email;
@@ -25,5 +27,22 @@ public class Email {
 
     private boolean isInvalidEmail(String email) {
         return !EmailValidator.getInstance().isValid(email);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Email email1 = (Email) o;
+        return Objects.equals(getEmail(), email1.getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getEmail());
+    }
+
+    @Override
+    public String toString() {
+        return email;
     }
 }

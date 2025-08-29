@@ -2,6 +2,7 @@ package br.ufjf.dcc.model.utils;
 
 import br.ufjf.dcc.model.exception.InvalidCPFException;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class CPF {
@@ -77,5 +78,22 @@ public class CPF {
 
     private static int secondVerifierDigit(String cleanedCPF) {
         return Integer.parseInt(cleanedCPF.substring(10, 11));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        CPF cpf1 = (CPF) o;
+        return Objects.equals(getCpf(), cpf1.getCpf());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getCpf());
+    }
+
+    @Override
+    public String toString() {
+        return cpf;
     }
 }
