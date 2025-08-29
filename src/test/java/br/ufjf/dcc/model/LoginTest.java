@@ -1,7 +1,6 @@
 package br.ufjf.dcc.model;
 
 import br.ufjf.dcc.controller.LoginController;
-import br.ufjf.dcc.model.exception.InvalidEmailException;
 import br.ufjf.dcc.model.exception.InvalidLoginException;
 import br.ufjf.dcc.model.repository.UsuarioRepository;
 import br.ufjf.dcc.model.utils.*;
@@ -16,23 +15,26 @@ public class LoginTest {
 
     @Test
     public void shouldReturnAValidUser(){
-        Date d = new Date(125, Calendar.AUGUST, 25);
-        Cliente c = Cliente.getInstance(Nome.getInstance("João", "Silva"), d, CPF.getInstance("011.251.206-22"),
-                new Endereco("Rua Zero", 33, "Bairro X", "Cidade", "Estado", CEP.getInstance("88135-145")),
-                Email.getInstance("joao@email.com"), Senha.getInstance("12345678"));
+        Date data = new Date(125, Calendar.AUGUST, 25);
+        Usuario user = new Usuario(
+                Nome.getInstance("João", "Silva"),
+                data,
+                CPF.getInstance("011.251.206-22"),
+                Telefone.getInstance("(32)98888-7777"),
+                Endereco.getInstance("Rua Zero", 33, "Bairro X", "Cidade", "Estado", CEP.getInstance("88135-145")),
+                Email.getInstance("joao@gmail.com"),
+                Senha.getInstance("senha123"));
         UsuarioRepository repository = new UsuarioRepository();
-        repository.save(c);
+        repository.save(user);
 
-        LoginController controller = new LoginController();
-        Usuario usuarioLogado = controller.login(Email.getInstance("joao@email.com"), Senha.getInstance("12345678"));
+        Usuario usuarioLogado = LoginController.login("joao@gmail.com", "senha123");
         assertNotNull(usuarioLogado, "Expected a valid user to be returned");
     }
 
     @Test
     public void shouldThrowExceptionForInvalidLogin(){
-        LoginController controller = new LoginController();
         assertThrows(InvalidLoginException.class, () ->
-                controller.login(Email.getInstance("emailNaoExistente@email.com"), Senha.getInstance("12345678")),
+                LoginController.login("emailNaoExistente@email.com", "12345678"),
                 "Expected InvalidLoginException for invalid login.");
     }
 
