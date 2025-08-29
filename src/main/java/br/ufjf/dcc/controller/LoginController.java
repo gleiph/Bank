@@ -5,7 +5,6 @@ import br.ufjf.dcc.model.exception.InvalidEmailException;
 import br.ufjf.dcc.model.exception.InvalidLoginException;
 import br.ufjf.dcc.model.exception.InvalidPasswordException;
 import br.ufjf.dcc.model.utils.Email;
-import br.ufjf.dcc.model.utils.Senha;
 import br.ufjf.dcc.model.repository.UsuarioRepository;
 import br.ufjf.dcc.view.LoginView;
 
@@ -16,13 +15,14 @@ import java.util.List;
 
 public class LoginController {
 
-    public static Usuario login(Email email, Senha senha) {
+    public static Usuario login(String emailValue, String senhaValue) {
         UsuarioRepository usuarioRepository = new UsuarioRepository();
         List<Usuario> usuarios = usuarioRepository.findAll();
+        Email email = Email.getInstance(emailValue);
 
         Usuario usuarioLogado = null;
         for(Usuario user : usuarios){
-            if(user.getEmail().getEmail().equals(email.getEmail()) && user.getSenha().getSenha().equals(senha.getSenha())){
+            if(user.getEmail().equals(email) && user.checkPassword(senhaValue)){
                 usuarioLogado = user;
             }
         }
@@ -45,8 +45,8 @@ public class LoginController {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                Email email = Email.getInstance(view.getEmailField().getText());
-                Senha senha = Senha.getInstance(view.getPasswordField().getText());
+                String email = view.getEmailField().getText();
+                String senha = view.getPasswordField().getText();
                 LoginController.login(email, senha);
             }
             catch(InvalidLoginException | InvalidEmailException | InvalidPasswordException error){
