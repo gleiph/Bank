@@ -1,7 +1,9 @@
 package br.ufjf.dcc.model.utils;
 
 import br.ufjf.dcc.model.exception.InvalidCEPException;
+import lombok.Getter;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,7 +22,7 @@ public class CEP {
         this.cep = cep;
     }
 
-    public String getCEP() {return this.cep;}
+    public String getCep() {return this.cep;}
 
     private boolean isValid(String cep) {
         if (cep == null || cep.isEmpty()) {
@@ -39,4 +41,15 @@ public class CEP {
         return numeros.substring(0, 5) + "-" + numeros.substring(5);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        CEP cep1 = (CEP) o;
+        return Objects.equals(getCep(), cep1.getCep());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getCep());
+    }
 }

@@ -2,6 +2,7 @@ package br.ufjf.dcc.model.utils;
 
 import br.ufjf.dcc.model.exception.InvalidPhoneNumberException;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,4 +30,15 @@ public class Telefone {
         return matcher.matches();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Telefone telefone1 = (Telefone) o;
+        return Objects.equals(getNumero(), telefone1.getNumero());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getNumero());
+    }
 }

@@ -3,6 +3,8 @@ package br.ufjf.dcc.model.utils;
 import lombok.Getter;
 import br.ufjf.dcc.model.exception.InvalidNameException;
 
+import java.util.Objects;
+
 @Getter
 public class Nome {
 
@@ -27,5 +29,17 @@ public class Nome {
     @Override
     public String toString(){
         return (nome+" "+sobrenome);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Nome nome1 = (Nome) o;
+        return Objects.equals(getNome(), nome1.getNome()) && Objects.equals(getSobrenome(), nome1.getSobrenome());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getNome());
     }
 }
