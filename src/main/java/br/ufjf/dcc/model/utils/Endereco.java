@@ -15,6 +15,12 @@ public class Endereco {
     private final CEP cep;
 
     private Endereco(String rua, int numero, String bairro, String cidade, String estado, CEP cep){
+        Objects.requireNonNull(rua, "Street cannot be null");
+        Objects.requireNonNull(bairro, "Neighbourhood cannot be null");
+        Objects.requireNonNull(cidade, "City cannot be null");
+        Objects.requireNonNull(estado, "State cannot be null");
+        Objects.requireNonNull(cep, "CEP cannot be null");
+
         this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
