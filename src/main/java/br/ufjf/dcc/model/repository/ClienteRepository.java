@@ -1,4 +1,4 @@
-package br.ufjf.dcc.repository;
+package br.ufjf.dcc.model.repository;
 
 import br.ufjf.dcc.model.Cliente;
 import com.google.gson.reflect.TypeToken;
