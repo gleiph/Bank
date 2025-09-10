@@ -1,4 +1,4 @@
-package br.ufjf.dcc.repository;
+package br.ufjf.dcc.model.repository;
 
 import java.util.List;
 

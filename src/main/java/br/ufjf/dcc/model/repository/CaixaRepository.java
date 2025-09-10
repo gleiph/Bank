@@ -1,48 +1,48 @@
-package br.ufjf.dcc.model.repository;
-
-import br.ufjf.dcc.model.Caixa;
-import com.google.gson.reflect.TypeToken;
-import java.io.File;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-import com.google.gson.Gson;
-
-public class CaixaRepository implements Repository<Caixa>{
-
-    private static final String PATH = DIRECTORY+ File.separator +"caixas.json";
-
-    @Override
-    public void save(List<Caixa> itens) {
-        Gson gson = new Gson();
-        String json = gson.toJson(itens);
-        File diretorio = new File(DIRECTORY);
-        if(!diretorio.exists())
-            diretorio.mkdirs();
-        Arquivo.salva(PATH, json);
-    }
-
-    public void save(Caixa item){
-        List<Caixa> itens = findAll();
-        itens.add(item);
-        save(itens);
-    }
-
-    @Override
-    public List<Caixa> findAll() {
-        Gson gson = new Gson();
-        String json = Arquivo.le(PATH);
-
-        List<Caixa> caixas = new ArrayList<>();
-        if(!json.trim().equals("")) {
-            Type tipoLista = new TypeToken<List<Caixa>>() {
-            }.getType();
-            caixas = gson.fromJson(json, tipoLista);
-
-            if (caixas == null)
-                caixas = new ArrayList<>();
-        }
-        return caixas;
-    }
-
-}
+//package br.ufjf.dcc.model.repository;
+//
+//import br.ufjf.dcc.model.Caixa;
+//import com.google.gson.reflect.TypeToken;
+//import java.io.File;
+//import java.lang.reflect.Type;
+//import java.util.ArrayList;
+//import java.util.List;
+//import com.google.gson.Gson;
+//
+//public class CaixaRepository implements Repository<Caixa>{
+//
+//    private static final String PATH = DIRECTORY+ File.separator +"caixas.json";
+//
+//    @Override
+//    public void save(List<Caixa> itens) {
+//        Gson gson = new Gson();
+//        String json = gson.toJson(itens);
+//        File diretorio = new File(DIRECTORY);
+//        if(!diretorio.exists())
+//            diretorio.mkdirs();
+//        Arquivo.salva(PATH, json);
+//    }
+//
+//    public void save(Caixa item){
+//        List<Caixa> itens = findAll();
+//        itens.add(item);
+//        save(itens);
+//    }
+//
+//    @Override
+//    public List<Caixa> findAll() {
+//        Gson gson = new Gson();
+//        String json = Arquivo.le(PATH);
+//
+//        List<Caixa> caixas = new ArrayList<>();
+//        if(!json.trim().equals("")) {
+//            Type tipoLista = new TypeToken<List<Caixa>>() {
+//            }.getType();
+//            caixas = gson.fromJson(json, tipoLista);
+//
+//            if (caixas == null)
+//                caixas = new ArrayList<>();
+//        }
+//        return caixas;
+//    }
+//
+//}
