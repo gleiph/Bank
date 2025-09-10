@@ -8,22 +8,18 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.Calendar;
-import java.util.Date;
-
 public class LoginTest {
 
     @Test
     public void shouldReturnAValidUser(){
-        Date data = new Date(125, Calendar.AUGUST, 25);
         Usuario user = new Usuario(
                 Nome.getInstance("João", "Silva"),
-                data,
                 CPF.getInstance("011.251.206-22"),
                 Telefone.getInstance("(32)98888-7777"),
                 Endereco.getInstance("Rua Zero", 33, "Bairro X", "Cidade", "Estado", CEP.getInstance("88135-145")),
                 Email.getInstance("joao@gmail.com"),
-                Senha.getInstance("senha123"));
+                Senha.getInstance("senha123"),
+                Perfil.CLIENTE);
         UsuarioRepository repository = new UsuarioRepository();
         repository.save(user);
 

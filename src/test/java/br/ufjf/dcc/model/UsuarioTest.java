@@ -11,18 +11,18 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("User Tests")
 class UsuarioTest {
     private static final Nome VALID_NAME = Nome.getInstance("Joao", "Silva");
-    private static final Date VALID_DATE = new Date(125, Calendar.JANUARY, 1);
     private static final CPF VALID_CPF = CPF.getInstance("969.968.310-40");
     private static final Telefone VALID_PHONE = Telefone.getInstance("(32)98888-7777");
     private static final Endereco VALID_CEP = Endereco.getInstance("Rua X", 300, "Bairro Y", "Cidade A", "Estado B", CEP.getInstance("04182-115"));
     private static final Email VALID_EMAIL = Email.getInstance("joao@gmail.com");
     private static final Senha VALID_PASSWORD = Senha.getInstance("asdfghjkl");
+    private static final Perfil VALID_PROFILE = Perfil.CLIENTE;
 
     private Usuario validUser;
 
     @BeforeEach
     void setUp() {
-        validUser = new Usuario(VALID_NAME, VALID_DATE, VALID_CPF, VALID_PHONE, VALID_CEP, VALID_EMAIL, VALID_PASSWORD);
+        validUser = new Usuario(VALID_NAME, VALID_CPF, VALID_PHONE, VALID_CEP, VALID_EMAIL, VALID_PASSWORD, VALID_PROFILE);
     }
 
     @Nested
@@ -31,25 +31,25 @@ class UsuarioTest {
         @Test
         void should_throw_exception_when_email_is_null() {
             assertThrows(NullPointerException.class, () ->
-                new Usuario(VALID_NAME, VALID_DATE, VALID_CPF, VALID_PHONE, VALID_CEP, null, VALID_PASSWORD));
+                new Usuario(VALID_NAME, VALID_CPF, VALID_PHONE, VALID_CEP, null, VALID_PASSWORD, VALID_PROFILE));
         }
 
         @Test
         void should_throw_exception_when_password_is_null() {
             assertThrows(NullPointerException.class, () ->
-                    new Usuario(VALID_NAME, VALID_DATE, VALID_CPF, VALID_PHONE, VALID_CEP, VALID_EMAIL, null));
+                    new Usuario(VALID_NAME, VALID_CPF, VALID_PHONE, VALID_CEP, VALID_EMAIL, null, VALID_PROFILE));
         }
 
         @Test
         void should_create_user_with_valid_data() {
-            Usuario user = new Usuario(VALID_NAME, VALID_DATE, VALID_CPF, VALID_PHONE, VALID_CEP, VALID_EMAIL, VALID_PASSWORD); ;
+            Usuario user = new Usuario(VALID_NAME, VALID_CPF, VALID_PHONE, VALID_CEP, VALID_EMAIL, VALID_PASSWORD, VALID_PROFILE); ;
             assertNotNull(user);
             assertEquals(VALID_NAME, user.getNome());
-            assertEquals(VALID_DATE, user.getData_nasc());
             assertEquals(VALID_CPF, user.getCpf());
             assertEquals(VALID_PHONE, user.getTelefone());
             assertEquals(VALID_CEP, user.getEndereco());
             assertEquals(VALID_EMAIL, user.getEmail());
+            assertEquals(VALID_PROFILE, user.getPerfil());
         }
     }
 
@@ -58,13 +58,13 @@ class UsuarioTest {
     class EqualsTests {
         @Test
         void should_be_not_equal_when_compare_user1_to_user2() {
-            Usuario user2 = new Usuario(Nome.getInstance("Roberto", "Silveira"), VALID_DATE, VALID_CPF, VALID_PHONE, VALID_CEP, VALID_EMAIL, VALID_PASSWORD); ;
+            Usuario user2 = new Usuario(Nome.getInstance("Roberto", "Silveira"), VALID_CPF, VALID_PHONE, VALID_CEP, VALID_EMAIL, VALID_PASSWORD, VALID_PROFILE); ;
             assertNotEquals(validUser, user2);
         }
 
         @Test
         void should_be_equal_when_compare_user1_to_user2() {
-            Usuario user2 = new Usuario(VALID_NAME, VALID_DATE, VALID_CPF, VALID_PHONE, VALID_CEP, VALID_EMAIL, VALID_PASSWORD);
+            Usuario user2 = new Usuario(VALID_NAME, VALID_CPF, VALID_PHONE, VALID_CEP, VALID_EMAIL, VALID_PASSWORD, VALID_PROFILE);
             assertEquals(validUser, user2);
         }
 
@@ -76,7 +76,7 @@ class UsuarioTest {
 
         @Test
         void should_have_same_hashcode_when_users_are_equal() {
-            Usuario user2 = new Usuario(VALID_NAME, VALID_DATE, VALID_CPF, VALID_PHONE, VALID_CEP, VALID_EMAIL, VALID_PASSWORD);
+            Usuario user2 = new Usuario(VALID_NAME, VALID_CPF, VALID_PHONE, VALID_CEP, VALID_EMAIL, VALID_PASSWORD, VALID_PROFILE);
             assertEquals(validUser.hashCode(), user2.hashCode());
         }
     }

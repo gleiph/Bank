@@ -2,14 +2,10 @@ package br.ufjf.dcc.model;
 
 import br.ufjf.dcc.model.utils.*;
 import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Objects;
 import java.util.UUID;
-
-enum Perfil{
-    CLIENTE,
-    CAIXA,
-    GERENTE
-}
 
 public class Usuario {
 
@@ -20,10 +16,13 @@ public class Usuario {
     @Getter
     private final CPF cpf;
     @Getter
+    @Setter
     private Telefone telefone;
     @Getter
+    @Setter
     private Endereco endereco;
     @Getter
+    @Setter
     private Email email;
     private Senha senha;
     @Getter

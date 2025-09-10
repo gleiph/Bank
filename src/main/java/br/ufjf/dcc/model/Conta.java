@@ -11,11 +11,11 @@ public class Conta {
 
     private final UUID id;
     @JsonIgnore
-    private final Cliente cliente;
+    private final Usuario cliente;
     @Setter
     private double saldo;
 
-    private Conta(Cliente cliente, double saldo){
+    private Conta(Usuario cliente, double saldo){
         this.id = UUID.randomUUID();
         this.cliente = cliente;
         this.saldo = saldo;
@@ -28,5 +28,5 @@ public class Conta {
 
     public static Conta createEmpty() {return new Conta();}
 
-    public static Conta getInstance(UUID id, Cliente cliente, double saldo) {return new Conta(cliente, saldo);}
+    public static Conta getInstance(UUID id, Usuario cliente, double saldo) {return new Conta(cliente, saldo);}
 }
