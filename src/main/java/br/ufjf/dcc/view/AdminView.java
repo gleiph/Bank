@@ -1,8 +1,10 @@
 package br.ufjf.dcc.view;
 
 import br.ufjf.dcc.controller.UsuarioController;
+import br.ufjf.dcc.model.Conta;
 import br.ufjf.dcc.model.Usuario;
 import br.ufjf.dcc.model.exception.*;
+import br.ufjf.dcc.model.repository.ContaRepository;
 import br.ufjf.dcc.model.utils.*;
 import br.ufjf.dcc.model.Usuario.*;
 
@@ -178,7 +180,7 @@ public class AdminView {
         DefaultListModel<Usuario> model = (DefaultListModel<Usuario>)jlUsuarios.getModel();
         Perfil perfil = (Perfil) jcPerfil.getSelectedItem();
         try {
-            model.addElement(new Usuario(
+            Usuario usuario = new Usuario(
                     Nome.getInstance(tfNome.getText(), tfSobrenome.getText()),
                     CPF.getInstance(tfCpf.getText()),
                     Telefone.getInstance(tfTelefone.getText()),
@@ -192,8 +194,14 @@ public class AdminView {
                     ),
                     Email.getInstance(tfEmail.getText()),
                     Senha.getInstance(tfSenha.getText()),
-                    perfil
-            ));
+                    perfil);
+            model.addElement(usuario);
+            if(perfil == Perfil.CLIENTE){
+                Conta contaCliente = Conta.getInstance(usuario);
+                ContaRepository repository = new ContaRepository();
+                repository.save(contaCliente);
+            }
+            JOptionPane.showMessageDialog(tela, "Usuário adicionado.");
         } catch (InvalidNameException |
                  InvalidCPFException |
                  InvalidPhoneNumberException |
@@ -201,7 +209,6 @@ public class AdminView {
                  InvalidPasswordException e) {
             JOptionPane.showMessageDialog(tela, e.getMessage());
         }
-        JOptionPane.showMessageDialog(tela, "Usuário adicionado.");
     }
 
     public void removerUsuario(){
@@ -276,13 +283,13 @@ public class AdminView {
                 ));
                 usuario.setEmail(Email.getInstance(tfEmail.getText()));
                 model.add(selectedIndex, usuario);
+                JOptionPane.showMessageDialog(tela, "Usuário editado.");
             }catch(InvalidCEPException | InvalidEmailException | InvalidPhoneNumberException error){
                 JOptionPane.showMessageDialog(tela, "Informações inválidas!");
             }
         }
 
         tela.pack();
-        JOptionPane.showMessageDialog(tela, "Usuário editado.");
     }
 
 }
