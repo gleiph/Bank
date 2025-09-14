@@ -1,19 +1,26 @@
 package br.ufjf.dcc.model;
 
+import br.ufjf.dcc.model.exception.InvalidAccountException;
 import br.ufjf.dcc.model.exception.InvalidValueException;
+import br.ufjf.dcc.model.repository.ContaRepository;
+import lombok.Getter;
 
+@Getter
 public class Transferencia extends Operacao {
 
-    private final Conta contaDestino;
+    private final transient Conta contaOrigem;
+    private final transient Conta contaDestino;
     private final double valor;
 
     private Transferencia(Conta origem, Conta destino, double valor){
-        super(origem);
+        super();
 
         if(valor <= 0) {throw new InvalidValueException("Invalid value: " + valor);}
         if(valor > origem.getSaldo()) {throw new InvalidValueException("Insufficient balance: " + origem.getSaldo());}
-        //quando houver persistência, verificar se a conta de destino existe
+        ContaRepository repository = new ContaRepository();
+        if(!repository.findById(destino.getId())) {throw new InvalidAccountException("Not a valid bank account: " + destino.getId());}
 
+        this.contaOrigem = origem;
         this.contaDestino = destino;
         this.valor = valor;
     }
@@ -23,10 +30,8 @@ public class Transferencia extends Operacao {
     }
 
     public void realiza(){
-        Conta origem = getContaOrigem();
-
-        double saldoOrigem = origem.getSaldo();
-        origem.setSaldo(saldoOrigem - valor); //Atualiza o saldo na conta de origem
+        double saldoOrigem = contaOrigem.getSaldo();
+        contaOrigem.setSaldo(saldoOrigem - valor); //Atualiza o saldo na conta de origem
 
         double saldoDestino = contaDestino.getSaldo();
         contaDestino.setSaldo(saldoDestino + valor); //Atualiza o saldo na conta de destino

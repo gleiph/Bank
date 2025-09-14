@@ -2,17 +2,18 @@ package br.ufjf.dcc.model;
 
 import lombok.Getter;
 
+import java.util.Date;
 import java.util.UUID;
 
 @Getter
-abstract class Operacao {
+public abstract class Operacao {
 
     private final UUID id;
-    private final Conta contaOrigem;
+    private final Date data;
 
-    public Operacao(Conta origem) {
+    public Operacao() {
         this.id = UUID.randomUUID();
-        this.contaOrigem = origem;
+        this.data = new Date();
     }
 
     public abstract void realiza();
