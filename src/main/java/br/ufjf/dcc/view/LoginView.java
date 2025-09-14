@@ -60,8 +60,8 @@ public class LoginView {
         frame.setLocationRelativeTo(null);
     }
 
-    public void showErrorMessage(){
-        JOptionPane.showMessageDialog(null, "E-mail ou senha incorretos.", "Erro", JOptionPane.ERROR_MESSAGE);
+    public void showErrorMessage(String message){
+        JOptionPane.showMessageDialog(null, message, "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
 }
