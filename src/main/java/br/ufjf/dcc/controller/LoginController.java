@@ -1,11 +1,16 @@
 package br.ufjf.dcc.controller;
 
+import br.ufjf.dcc.model.Conta;
 import br.ufjf.dcc.model.Usuario;
 import br.ufjf.dcc.model.exception.InvalidEmailException;
 import br.ufjf.dcc.model.exception.InvalidLoginException;
 import br.ufjf.dcc.model.exception.InvalidPasswordException;
+import br.ufjf.dcc.model.repository.ContaRepository;
 import br.ufjf.dcc.model.utils.Email;
 import br.ufjf.dcc.model.repository.UsuarioRepository;
+import br.ufjf.dcc.model.utils.Perfil;
+import br.ufjf.dcc.view.AdminView;
+import br.ufjf.dcc.view.ClienteView;
 import br.ufjf.dcc.view.LoginView;
 
 import javax.swing.*;
@@ -30,6 +35,24 @@ public class LoginController {
             throw new InvalidLoginException("Invalid login");
         }
 
+        Perfil perfil = usuarioLogado.getPerfil();
+        switch(perfil)
+        {
+            case Perfil.CLIENTE : {
+                ContaRepository repository = new ContaRepository();
+                Conta contaCliente = repository.findByCliente(usuarioLogado);
+                ClienteView view = new ClienteView(contaCliente);
+                view.draw();
+            }
+            break;
+            case Perfil.ADMIN: {
+                AdminView view = new AdminView();
+                view.desenha();
+            }
+            break;
+            default: break;
+        }
+
         System.out.println("Successful login");
         return usuarioLogado;
     }
@@ -50,7 +73,7 @@ public class LoginController {
                 LoginController.login(email, senha);
             }
             catch(InvalidLoginException | InvalidEmailException | InvalidPasswordException error){
-                view.showErrorMessage();
+                view.showErrorMessage(error.getMessage());
             }
         }
     }
