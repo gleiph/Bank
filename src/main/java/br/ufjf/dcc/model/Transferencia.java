@@ -10,6 +10,7 @@ public class Transferencia extends Operacao {
 
     private final transient Conta contaOrigem;
     private final transient Conta contaDestino;
+    private final String titularContaDestino;
     private final double valor;
 
     private Transferencia(Conta origem, Conta destino, double valor){
@@ -23,6 +24,7 @@ public class Transferencia extends Operacao {
         this.contaOrigem = origem;
         this.contaDestino = destino;
         this.valor = valor;
+        this.titularContaDestino = destino.getCliente().getNome().toString();
     }
 
     public static Transferencia getInstance(Conta origem, Conta destino, double valor){
