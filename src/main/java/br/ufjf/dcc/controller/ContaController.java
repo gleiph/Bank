@@ -40,7 +40,7 @@ public class ContaController {
                 System.out.println("Successful withdraw");
                 tela.showSucessMessage("Saque realizado com sucesso.");
             }
-            catch(InvalidValueException error){
+            catch(InvalidValueException | NumberFormatException error){
                 tela.showErrorMessage(error.getMessage());
             }
         }
