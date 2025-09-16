@@ -55,6 +55,17 @@ public class ContaRepository implements Repository<Conta>{
         return contaEncontrada;
     }
 
+    public Conta findByClienteId(UUID item){
+        List<Conta> contas = findAll();
+        Conta contaEncontrada = null;
+        for(Conta c : contas){
+            if(c.getCliente().getId().equals(item)){
+                contaEncontrada = c;
+            }
+        }
+        return contaEncontrada;
+    }
+
     public Conta findById(UUID id){
         List<Conta> contas = findAll();
         for(Conta c : contas){
