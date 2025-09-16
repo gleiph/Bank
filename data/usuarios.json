@@ -1,0 +1,92 @@
+[
+  {
+    "id": "40fb221a-40cc-4c57-93a6-3f1c12797c69",
+    "nome": {
+      "nome": "Maria",
+      "sobrenome": "Fernandes"
+    },
+    "cpf": {
+      "cpf": "969.968.310-40"
+    },
+    "telefone": {
+      "numero": "32988887777"
+    },
+    "endereco": {
+      "rua": "Rua Morais e Castro",
+      "numero": 23,
+      "bairro": "Santa Catarina",
+      "cidade": "Juiz de Fora",
+      "estado": "Minas Gerais",
+      "cep": {
+        "cep": "36036-100"
+      }
+    },
+    "email": {
+      "email": "maria@admin.com"
+    },
+    "senha": {
+      "senha": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f"
+    },
+    "perfil": "ADMIN"
+  },
+  {
+    "id": "67a4dfd2-5215-4b76-9999-8aa5eb77a9a0",
+    "nome": {
+      "nome": "Maria",
+      "sobrenome": "Fernandes"
+    },
+    "cpf": {
+      "cpf": "969.968.310-40"
+    },
+    "telefone": {
+      "numero": "32988887777"
+    },
+    "endereco": {
+      "rua": "Rua Morais e Castro",
+      "numero": 23,
+      "bairro": "Santa Catarina",
+      "cidade": "Juiz de Fora",
+      "estado": "Minas Gerais",
+      "cep": {
+        "cep": "36036-100"
+      }
+    },
+    "email": {
+      "email": "maria@cliente.com"
+    },
+    "senha": {
+      "senha": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f"
+    },
+    "perfil": "CLIENTE"
+  },
+  {
+    "id": "88aac7a4-11a5-4786-94b8-7277e7211f8e",
+    "nome": {
+      "nome": "Joao",
+      "sobrenome": "Fernandes"
+    },
+    "cpf": {
+      "cpf": "969.968.310-40"
+    },
+    "telefone": {
+      "numero": "32988887777"
+    },
+    "endereco": {
+      "rua": "Rua Morais e Castro",
+      "numero": 23,
+      "bairro": "Santa Catarina",
+      "cidade": "Juiz de Fora",
+      "estado": "Minas Gerais",
+      "cep": {
+        "cep": "36036-100"
+      }
+    },
+    "email": {
+      "email": "joao@cliente.com"
+    },
+    "senha": {
+      "senha": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f"
+    },
+    "perfil": "CLIENTE"
+  }
+]
