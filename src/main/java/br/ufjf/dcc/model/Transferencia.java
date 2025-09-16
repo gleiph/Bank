@@ -19,7 +19,8 @@ public class Transferencia extends Operacao {
         if(valor <= 0) {throw new InvalidValueException("Invalid value: " + valor);}
         if(valor > origem.getSaldo()) {throw new InvalidValueException("Insufficient balance: " + origem.getSaldo());}
         ContaRepository repository = new ContaRepository();
-        if(!repository.findById(destino.getId())) {throw new InvalidAccountException("Not a valid bank account: " + destino.getId());}
+        if(destino == null) {throw new InvalidAccountException("Not a valid bank account.");}
+        if(destino.equals(origem)) {throw new InvalidAccountException("Destiny account cannot be the same as the origin.");}
 
         this.contaOrigem = origem;
         this.contaDestino = destino;

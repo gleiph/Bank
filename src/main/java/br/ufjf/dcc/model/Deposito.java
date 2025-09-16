@@ -17,7 +17,7 @@ public class Deposito extends Operacao{
         super();
         if(valor <= 0) {throw new InvalidValueException("Invalid value: " + valor);}
         ContaRepository repository = new ContaRepository();
-        if(!repository.findById(destino.getId())) {throw new InvalidAccountException("Not a valid bank account: " + destino.getId());}
+        if(destino == null) {throw new InvalidAccountException("Not a valid bank account.");}
 
         this.contaOrigem = origem;
         this.valor = valor;
