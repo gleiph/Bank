@@ -27,7 +27,20 @@ public class ContaRepository implements Repository<Conta>{
 
     public void save(Conta item){
         List<Conta> itens = findAll();
-        itens.add(item);
+
+        boolean isNew = true;
+        for(Conta c : itens){
+            if (c.getId().equals(item.getId())) {
+                isNew = false;
+                break;
+            }
+        }
+        if(isNew) {itens.add(item);}
+        else {
+            Conta contaOld = findById(item.getId());
+            itens.remove(contaOld);
+            itens.add(item);
+        }
         save(itens);
     }
 
@@ -42,14 +55,14 @@ public class ContaRepository implements Repository<Conta>{
         return contaEncontrada;
     }
 
-    public boolean findById(UUID id){
+    public Conta findById(UUID id){
         List<Conta> contas = findAll();
         for(Conta c : contas){
             if(c.getId().equals(id)){
-                return true;
+                return c;
             }
         }
-        return false;
+        return null;
     }
 
     @Override
