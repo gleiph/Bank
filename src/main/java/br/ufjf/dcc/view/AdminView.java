@@ -142,10 +142,14 @@ public class AdminView {
         JButton btnEditar = new JButton("Editar");
         btnEditar.addActionListener(new UsuarioController.EditarUsuario(this));
 
+        JButton btnSair = new JButton("Sair");
+        btnSair.addActionListener(e -> {tela.dispose();});
+
         JPanel botoes = new JPanel();
         botoes.add(btnAdicionar);
         botoes.add(btnRemover);
         botoes.add(btnEditar);
+        botoes.add(btnSair);
 
         painel.add(botoes, BorderLayout.SOUTH);
 
