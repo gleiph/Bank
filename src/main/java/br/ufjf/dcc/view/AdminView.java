@@ -288,6 +288,11 @@ public class AdminView {
                 usuario.setEmail(Email.getInstance(tfEmail.getText()));
                 model.add(selectedIndex, usuario);
                 JOptionPane.showMessageDialog(tela, "Usuário editado.");
+
+                //Atualiza usuário no repositório de contas
+                ContaRepository repository = new ContaRepository();
+                Conta contaUsuario = repository.findByClienteId(usuario.getId());
+                repository.save(contaUsuario);
             }catch(InvalidCEPException | InvalidEmailException | InvalidPhoneNumberException error){
                 JOptionPane.showMessageDialog(tela, "Informações inválidas!");
             }
