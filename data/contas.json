@@ -1,1 +1,147 @@
-[{"id":"aad9b6c1-c7ff-4757-a5e1-99f15eb17afe","cliente":{"id":"67a4dfd2-5215-4b76-9999-8aa5eb77a9a0","nome":{"nome":"Maria","sobrenome":"Fernandes"},"cpf":{"cpf":"969.968.310-40"},"telefone":{"numero":"32988887777"},"endereco":{"rua":"Rua Morais e Castro","numero":23,"bairro":"Santa Catarina","cidade":"Juiz de Fora","estado":"Minas Gerais","cep":{"cep":"36036-100"}},"email":{"email":"maria@cliente.com"},"senha":{"senha":"ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f"},"perfil":"CLIENTE"},"saldo":10000.0,"saques":[{"valor":100.0,"id":"a94ddbe8-8f5f-46f5-809d-a404480623d2","data":"Sep 14, 2025, 11:56:40 AM"},{"valor":1999.0,"id":"f5334bf6-4fa5-4457-8c7d-2a6cf38f7766","data":"Sep 14, 2025, 8:42:36 PM"},{"valor":129.0,"id":"a922b3dd-0976-4d5a-8a9e-bb8901f268f3","data":"Sep 14, 2025, 8:42:37 PM"},{"valor":1.0,"id":"9adef824-9e25-43c6-af0e-1569676ece8e","data":"Sep 14, 2025, 8:42:39 PM"},{"valor":1.0,"id":"5ce0c6df-d1fa-4fba-a227-6673f2613e36","data":"Sep 14, 2025, 8:42:40 PM"},{"valor":1.0,"id":"fef22bd9-070e-438b-8ba2-7ff9c9884594","data":"Sep 14, 2025, 8:42:41 PM"},{"valor":1.0,"id":"d62337ea-9418-4cf1-b7cf-f77d7b2c44a7","data":"Sep 14, 2025, 8:42:43 PM"},{"valor":1.0,"id":"813e9321-c731-4d01-a4dc-b3c0c15af741","data":"Sep 14, 2025, 8:42:44 PM"},{"valor":1.0,"id":"a8b789d6-933a-44ed-87fa-6cde8c43c655","data":"Sep 14, 2025, 8:42:45 PM"},{"valor":1.0,"id":"b9df767c-98a9-492f-8ee4-983e340819a7","data":"Sep 14, 2025, 8:42:47 PM"},{"valor":90.0,"id":"f58878f3-f366-4d07-aee3-502aad6018da","data":"Sep 15, 2025, 7:35:38 PM"}],"depositos":[{"valor":12.0,"titularContaDestino":"Maria Fernandes","id":"3dfefbac-7b35-4eba-8c96-ff43d04891ae","data":"Sep 15, 2025, 8:04:02 PM"},{"valor":3.0,"titularContaDestino":"Maria Fernandes","id":"ae12dd28-87e9-442f-8ea4-4f6abf2508d8","data":"Sep 15, 2025, 8:08:39 PM"},{"valor":3.0,"titularContaDestino":"Maria Fernandes","id":"2721800b-4c80-4441-a705-4d8c45a6c301","data":"Sep 15, 2025, 8:09:11 PM"},{"valor":3.0,"titularContaDestino":"Maria Fernandes","id":"8ce3fe3b-3e54-472d-bca6-546ef941ad75","data":"Sep 15, 2025, 8:12:40 PM"}],"transferencias":[{"titularContaDestino":"Joao Fernandes","valor":105.0,"id":"3314f14e-6a0a-484d-a045-b31f6d9b5650","data":"Sep 15, 2025, 9:12:03 PM"}]},{"id":"ed2ad472-3d20-48c3-86da-3d977d83d281","cliente":{"id":"88aac7a4-11a5-4786-94b8-7277e7211f8e","nome":{"nome":"Joao","sobrenome":"Fernandes"},"cpf":{"cpf":"969.968.310-40"},"telefone":{"numero":"32988887777"},"endereco":{"rua":"Rua Morais e Castro","numero":23,"bairro":"Santa Catarina","cidade":"Juiz de Fora","estado":"Minas Gerais","cep":{"cep":"36036-100"}},"email":{"email":"joao@cliente.com"},"senha":{"senha":"ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f"},"perfil":"CLIENTE"},"saldo":105.0,"saques":[],"depositos":[],"transferencias":[{"titularContaDestino":"Joao Fernandes","valor":105.0,"id":"3314f14e-6a0a-484d-a045-b31f6d9b5650","data":"Sep 15, 2025, 9:12:03 PM"}]}]
+[{
+        "id": "aad9b6c1-c7ff-4757-a5e1-99f15eb17afe",
+        "cliente": {
+            "id": "67a4dfd2-5215-4b76-9999-8aa5eb77a9a0",
+            "nome": {
+                "nome": "Maria",
+                "sobrenome": "Silva"
+            },
+            "cpf": {
+                "cpf": "969.968.310-40"
+            },
+            "telefone": {
+                "numero": "32988887777"
+            },
+            "endereco": {
+                "rua": "Rua Morais e Castro",
+                "numero": 23,
+                "bairro": "Santa Catarina",
+                "cidade": "Juiz de Fora",
+                "estado": "Minas Gerais",
+                "cep": {
+                    "cep": "36036-100"
+                }
+            },
+            "email": {
+                "email": "maria@cliente.com"
+            },
+            "senha": {
+                "senha": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f"
+            },
+            "perfil": "CLIENTE"
+        },
+        "saldo": 10000.0,
+        "saques": [{
+                "valor": 100.0,
+                "id": "a94ddbe8-8f5f-46f5-809d-a404480623d2",
+                "data": "Sep 14, 2025, 11:56:40 AM"
+            }, {
+                "valor": 1999.0,
+                "id": "f5334bf6-4fa5-4457-8c7d-2a6cf38f7766",
+                "data": "Sep 14, 2025, 8:42:36 PM"
+            }, {
+                "valor": 129.0,
+                "id": "a922b3dd-0976-4d5a-8a9e-bb8901f268f3",
+                "data": "Sep 14, 2025, 8:42:37 PM"
+            }, {
+                "valor": 1.0,
+                "id": "9adef824-9e25-43c6-af0e-1569676ece8e",
+                "data": "Sep 14, 2025, 8:42:39 PM"
+            }, {
+                "valor": 1.0,
+                "id": "5ce0c6df-d1fa-4fba-a227-6673f2613e36",
+                "data": "Sep 14, 2025, 8:42:40 PM"
+            }, {
+                "valor": 1.0,
+                "id": "fef22bd9-070e-438b-8ba2-7ff9c9884594",
+                "data": "Sep 14, 2025, 8:42:41 PM"
+            }, {
+                "valor": 1.0,
+                "id": "d62337ea-9418-4cf1-b7cf-f77d7b2c44a7",
+                "data": "Sep 14, 2025, 8:42:43 PM"
+            }, {
+                "valor": 1.0,
+                "id": "813e9321-c731-4d01-a4dc-b3c0c15af741",
+                "data": "Sep 14, 2025, 8:42:44 PM"
+            }, {
+                "valor": 1.0,
+                "id": "a8b789d6-933a-44ed-87fa-6cde8c43c655",
+                "data": "Sep 14, 2025, 8:42:45 PM"
+            }, {
+                "valor": 1.0,
+                "id": "b9df767c-98a9-492f-8ee4-983e340819a7",
+                "data": "Sep 14, 2025, 8:42:47 PM"
+            }, {
+                "valor": 90.0,
+                "id": "f58878f3-f366-4d07-aee3-502aad6018da",
+                "data": "Sep 15, 2025, 7:35:38 PM"
+            }],
+        "depositos": [{
+                "valor": 12.0,
+                "titularContaDestino": "Maria Fernandes",
+                "id": "3dfefbac-7b35-4eba-8c96-ff43d04891ae",
+                "data": "Sep 15, 2025, 8:04:02 PM"
+            }, {
+                "valor": 3.0,
+                "titularContaDestino": "Maria Fernandes",
+                "id": "ae12dd28-87e9-442f-8ea4-4f6abf2508d8",
+                "data": "Sep 15, 2025, 8:08:39 PM"
+            }, {
+                "valor": 3.0,
+                "titularContaDestino": "Maria Fernandes",
+                "id": "2721800b-4c80-4441-a705-4d8c45a6c301",
+                "data": "Sep 15, 2025, 8:09:11 PM"
+            }, {
+                "valor": 3.0,
+                "titularContaDestino": "Maria Fernandes",
+                "id": "8ce3fe3b-3e54-472d-bca6-546ef941ad75",
+                "data": "Sep 15, 2025, 8:12:40 PM"
+            }],
+        "transferencias": [{
+                "titularContaDestino": "Joao Fernandes",
+                "valor": 105.0,
+                "id": "3314f14e-6a0a-484d-a045-b31f6d9b5650",
+                "data": "Sep 15, 2025, 9:12:03 PM"
+            }]
+    }, {
+        "id": "ed2ad472-3d20-48c3-86da-3d977d83d281",
+        "cliente": {
+            "id": "88aac7a4-11a5-4786-94b8-7277e7211f8e",
+            "nome": {
+                "nome": "João",
+                "sobrenome": "Oliveira"
+            },
+            "cpf": {
+                "cpf": "969.968.310-40"
+            },
+            "telefone": {
+                "numero": "32988887777"
+            },
+            "endereco": {
+                "rua": "Rua Morais e Castro",
+                "numero": 23,
+                "bairro": "Santa Catarina",
+                "cidade": "Juiz de Fora",
+                "estado": "Minas Gerais",
+                "cep": {
+                    "cep": "36036-100"
+                }
+            },
+            "email": {
+                "email": "joao@cliente.com"
+            },
+            "senha": {
+                "senha": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f"
+            },
+            "perfil": "CLIENTE"
+        },
+        "saldo": 105.0,
+        "saques": [],
+        "depositos": [],
+        "transferencias": [{
+                "titularContaDestino": "Joao Fernandes",
+                "valor": 105.0,
+                "id": "3314f14e-6a0a-484d-a045-b31f6d9b5650",
+                "data": "Sep 15, 2025, 9:12:03 PM"
+            }]
+    }]
