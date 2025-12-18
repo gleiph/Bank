@@ -76,6 +76,12 @@ Main-1.0-SNAPSHOT.jar
 
 Esse arquivo `.jar` é o responsável por executar o projeto.
 
+Na pasta raiz, execute o comando abaixo:
+
+```bash
+java -jar target/Main-1.0-SNAPSHOT.jar
+```
+
 ---
 
 ## 👤 Usuários Pré-Cadastrados para Login
