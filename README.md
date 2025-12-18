@@ -71,7 +71,7 @@ Após a execução, será criada a pasta **`target`**, que contém os arquivos g
 Dentro dessa pasta, estará disponível o arquivo:
 
 ```text
-Bank-1.0-SNAPSHOT.jar
+Main-1.0-SNAPSHOT.jar
 ```
 
 Esse arquivo `.jar` é o responsável por executar o projeto.
