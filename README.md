@@ -8,7 +8,7 @@ O **Bank** é um sistema desenvolvido em **Java**, utilizando **Maven** como fer
 
 ## 🛠️ Tecnologias Utilizadas
 
-* Java
+* Java 21
 * Maven
 
 ---
